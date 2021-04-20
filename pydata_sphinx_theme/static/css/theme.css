@@ -64,9 +64,10 @@
   --pst-color-inline-code: 232, 62, 140;
 
   --pst-color-active-navigation: 19, 6, 84;
-  --pst-color-navbar-link: 77, 77, 77;
-  --pst-color-navbar-link-hover: var(--pst-color-active-navigation);
-  --pst-color-navbar-link-active: var(--pst-color-active-navigation);
+  --pst-color-navbar-active: 01, 123, 149;
+  --pst-color-navbar-link: 255, 255, 255;
+  --pst-color-navbar-link-hover: var(--pst-color-navbar-active);
+  --pst-color-navbar-link-active: var(--pst-color-navbar-active);
   --pst-color-sidebar-link: 77, 77, 77;
   --pst-color-sidebar-link-hover: var(--pst-color-active-navigation);
   --pst-color-sidebar-link-active: var(--pst-color-active-navigation);

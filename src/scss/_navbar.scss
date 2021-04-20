@@ -52,6 +52,29 @@
   }
 }
 
+// If we want the shadow to only point downward in the future, set
+// box-shadow to: 0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.11);
+.navbar-dark {
+  background: #02064e !important;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.11);
+
+  .navbar-nav {
+    li a.nav-link {
+      padding: 0 .5rem;
+      color: rgba(var(--pst-color-navbar-link), 1);
+
+      &:hover {
+        color: rgba(var(--pst-color-navbar-link-hover), 1);
+      }
+    }
+
+    > .active > .nav-link {
+      font-weight: 600;
+      color: rgba(var(--pst-color-navbar-link-active), 1);
+    }
+  }
+}
+
 .navbar-header a {
   padding: 0 15px;
 }
