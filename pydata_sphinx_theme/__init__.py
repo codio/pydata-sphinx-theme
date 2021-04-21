@@ -240,6 +240,7 @@ def add_toctree_functions(app, pagename, templatename, context, doctree):
             "content": ("col-lg-9", "mr-auto"),
             "left": ("", "mr-auto"),
             "right": ("", "ml-auto"),
+            "none": ("", ""),
         }
         if align not in align_options:
             raise ValueError(
