@@ -4,10 +4,16 @@
 {# prev/next buttons #}
 {% macro prev_next(prev, next, prev_title='', next_title='') %}
  {%- if prev %}
-    <a class='left-prev' id="prev-link" href="{{ prev.link|e }}" title="{{ _('previous page')}}">{{ prev_title or prev.title }}</a>
+    <a class='left-prev' id="prev-link" href="{{ prev.link|e }}" title="{{ _('previous page')}}">
+      <i class="left-prev-icon icon fa fa-angle-left"></i>
+      <span class="left-prev-title">{{ prev_title or prev.title }}</span>
+    </a>
  {%- endif %}
  {%- if next %}
-    <a class='right-next' id="next-link" href="{{ next.link|e }}" title="{{ _('next page')}}">{{ next_title or next.title }}</a>
+    <a class='right-next' id="next-link" href="{{ next.link|e }}" title="{{ _('next page')}}">
+      <span class="right-next-title">{{ next_title or next.title }}</span>
+      <i class="right-next-icon icon fa fa-angle-right"></i>
+    </a>
  {%- endif %}
 {% endmacro %}
 
@@ -47,7 +53,7 @@
     <div class="container-fluid" id="banner"></div>
 
     {% block docs_navbar %}
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+    <nav class="navbar navbar-dark-codio navbar-expand-lg bg-dark fixed-top bd-navbar" id="navbar-main">
       {%- include "docs-navbar.html" %}
     </nav>
     {% endblock %}
@@ -76,6 +82,11 @@
               </div>
               {% endfor %}
             {% endif %}
+            {% if theme_show_prev_next %}
+              <div class='prev-next-bottom'>
+                {{ prev_next(prev, next, 'Previous', 'Next') }}
+              </div>
+            {% endif %}
           </div>
           {% endblock %}
 
@@ -91,11 +102,7 @@
                 {% block body %} {% endblock %}
               </div>
               {% endblock %}
-              {% if theme_show_prev_next %}
-              <div class='prev-next-bottom'>
-                {{ prev_next(prev, next) }}
-              </div>
-              {% endif %}
+
           </main>
           {% endblock %}
 

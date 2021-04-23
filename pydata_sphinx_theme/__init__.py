@@ -121,6 +121,8 @@ def add_toctree_functions(app, pagename, templatename, context, doctree):
             # Add icons and labels for collapsible nested sections
             _add_collapse_checkboxes(soup)
 
+            _add_angles(soup)
+
             out = soup.prettify()
 
         elif kind == "raw":
@@ -240,6 +242,7 @@ def add_toctree_functions(app, pagename, templatename, context, doctree):
             "content": ("col-lg-9", "mr-auto"),
             "left": ("", "mr-auto"),
             "right": ("", "ml-auto"),
+            "none": ("", ""),
         }
         if align not in align_options:
             raise ValueError(
@@ -300,6 +303,15 @@ def _add_collapse_checkboxes(soup):
             checkbox.attrs["checked"] = ""
 
         element.insert(1, checkbox)
+
+def _add_angles(soup):
+    # based on https://github.com/pradyunsg/furo
+    for element in soup.find_all("li", recursive=True):
+        # Add the "label" for the checkbox which will get filled.
+        if soup.new_tag is None:
+            continue
+        icon = soup.new_tag("i", attrs={"class": "fas fa-angle-right"})
+        element.insert(1, icon)
 
 
 def _get_local_toctree_for(
