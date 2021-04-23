@@ -306,17 +306,7 @@ def _add_collapse_checkboxes(soup):
 
 def _add_angles(soup):
     # based on https://github.com/pradyunsg/furo
-
-    toctree_checkbox_count = 0
-
     for element in soup.find_all("li", recursive=True):
-        # We check all "li" elements, to add a "current-page" to the correct li.
-        classes = element.get("class", [])
-
-        # Nothing more to do, unless this has "children"
-        if not element.find("ul"):
-            continue
-
         # Add the "label" for the checkbox which will get filled.
         if soup.new_tag is None:
             continue
