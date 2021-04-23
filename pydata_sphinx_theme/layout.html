@@ -76,6 +76,11 @@
               </div>
               {% endfor %}
             {% endif %}
+            {% if theme_show_prev_next %}
+              <div class='prev-next-bottom'>
+                {{ prev_next(prev, next, 'previous', 'next') }}
+              </div>
+            {% endif %}
           </div>
           {% endblock %}
 
@@ -91,11 +96,7 @@
                 {% block body %} {% endblock %}
               </div>
               {% endblock %}
-              {% if theme_show_prev_next %}
-              <div class='prev-next-bottom'>
-                {{ prev_next(prev, next) }}
-              </div>
-              {% endif %}
+
           </main>
           {% endblock %}
 
