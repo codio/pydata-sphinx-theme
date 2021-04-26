@@ -157,7 +157,7 @@ def add_toctree_functions(app, pagename, templatename, context, doctree):
             if li.find("a"):
                 a = li.find("a")
                 a["class"] = a.get("class", []) + ["nav-link"]
-                a.append(soup.new_tag("i", attrs={"class": "fas icon fa-chevron-down"}))
+                a.append(soup.new_tag("i", attrs={"class": "fas icon fa-angle-right"}))
 
         # If we only have one h1 header, assume it's a title
         h1_headers = soup.select(".toc-h1")
