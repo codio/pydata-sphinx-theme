@@ -310,8 +310,9 @@ def _add_angles(soup):
     for element in soup.find_all("li", recursive=True):
         if soup.new_tag is None:
             continue
-        icon = soup.new_tag("i", attrs={"class": "fas icon fa-angle-right"})
-        element.insert(1, icon)
+        href = element.find("a")
+        if href:
+            href.append(soup.new_tag("i", attrs={"class": "fas icon fa-angle-right"}))
 
 
 def _get_local_toctree_for(
