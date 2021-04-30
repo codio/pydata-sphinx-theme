@@ -310,6 +310,9 @@ def _add_angles(soup):
     for element in soup.find_all("li", recursive=True):
         if soup.new_tag is None:
             continue
+        classes = element.get("class", [])
+        if "has-children" in classes:
+            continue
         href = element.find("a")
         if href:
             href.append(soup.new_tag("i", attrs={"class": "fas icon fa-angle-right"}))
